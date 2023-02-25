@@ -4,6 +4,10 @@ const router=require('express').Router();
 
 
 
-router.post('/new',createTweet )
+router.post('/new',createTweet );   //creation d un tweet
+
+
+
+
 
 module.exports=router

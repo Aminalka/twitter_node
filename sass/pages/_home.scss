@@ -1,0 +1,10 @@
+.content{
+    background-color: $secondary-color;
+    height: 80vh;
+
+    @include flex($align:flex-start);
+
+   
+
+    
+}

@@ -1,0 +1,19 @@
+.tweets-container{
+    width: 80%;
+
+    @include flex;
+
+    .tweets-list{
+        width:80%;
+        @include flex($direction:column);
+
+        form{
+            margin-top: 2rem;
+            width: 50%;
+        }
+
+        
+    }
+
+
+}
