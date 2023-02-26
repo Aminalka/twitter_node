@@ -24,7 +24,7 @@ if(process.env.NODE_ENV === 'dev') {
     app.use((err, req, res, next) => {
         const code = err.code || 500;
         res.status(code).json({
-            code: code,
+            code,   //=> code: code,
             message: code === 500 ? null : err.message
         })
     })

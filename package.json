@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass sass/style.scss:public/css/style.css",
-    "watch":"sass --watch sass/style.scss:public/css/style.css",
+    "watch": "sass --watch sass/style.scss:public/css/style.css",
     "start": "set NODE_ENV=dev&&nodemon app.js",
     "start:prod": "set NODE_ENV=prod&&nodemon app.js"
   },
