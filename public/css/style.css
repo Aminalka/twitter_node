@@ -201,15 +201,28 @@ a {
 .tweet-card-author {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: wrap;
 }
-.tweet-card-author img {
+.tweet-card-author-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-direction: wrap;
+}
+.tweet-card-author-data img {
   width: 2.5rem;
 }
-.tweet-card-author p {
+.tweet-card-author-data p {
   margin-left: 1rem;
+}
+.tweet-card-author-actions a {
+  color: #333;
+}
+.tweet-card-author-actions a i {
+  cursor: pointer;
 }
 .tweet-card-body {
   padding: 1rem;

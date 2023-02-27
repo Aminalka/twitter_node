@@ -11,14 +11,29 @@
 
     &-author{
 
-        @include flex($justify:flex-start);
-        img{
+        @include flex($justify:space-between);
+
+        &-data{
+            @include flex;
+
+            img{
             width: 2.5rem;
+            }
+
+            p{
+                margin-left: 1rem;
+            }  
         }
 
-        p{
-            margin-left: 1rem;
+        &-actions{
+            a{
+                color: $text-color;
+                i{
+                    cursor: pointer;
+                }
+            }
         }
+        
     }
 
     &-body{
