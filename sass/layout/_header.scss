@@ -4,6 +4,9 @@
     box-shadow: $box-shadow;
     @include flex($justify:space-between);
     background-color: $bg;
+    width: 100%;
+
+ 
 
     
 

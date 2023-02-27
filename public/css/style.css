@@ -23,8 +23,9 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
   background-color: #eeeeee;
+  width: 100%;
 }
 .top-bar ul {
   width: 30%;
@@ -32,7 +33,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 .top-bar ul li {
   margin-left: 10px;
@@ -54,6 +55,8 @@ a {
     position: fixed;
     bottom: 0;
     left: 0;
+    top: auto;
+    border-radius: 0;
     width: 100%;
     height: 10vh;
   }
@@ -65,15 +68,16 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 .tweets-container .tweets-list {
   width: 80%;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 @media (max-width: 480px) {
   .tweets-container .tweets-list {
@@ -113,49 +117,6 @@ a {
 .tweets-container .tweets-list form .form-body .form-item:last-child {
   text-align: right;
 }
-.tweets-container .tweets-list .tweet-card {
-  width: 50%;
-  border: 1px solid #333;
-  border-radius: 5px;
-  margin-top: 2rem;
-  padding: 1.5rem;
-}
-@media (max-width: 480px) {
-  .tweets-container .tweets-list .tweet-card {
-    width: 100%;
-  }
-}
-.tweets-container .tweets-list .tweet-card-author {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: wrap;
-}
-.tweets-container .tweets-list .tweet-card-author img {
-  width: 2.5rem;
-}
-.tweets-container .tweets-list .tweet-card-author p {
-  margin-left: 1rem;
-}
-.tweets-container .tweets-list .tweet-card-body {
-  padding: 1rem;
-}
-.tweets-container .tweets-list .tweet-card-actions {
-  margin-top: 2rem;
-  border-top: 1px solid #eeeeee;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: wrap;
-}
-.tweets-container .tweets-list .tweet-card-actions i {
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  cursor: pointer;
-}
 
 .btn {
   padding: 10px 15px;
@@ -183,7 +144,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 
 .tweet-card {
@@ -203,14 +164,14 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 .tweet-card-author-data {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 .tweet-card-author-data img {
   width: 2.5rem;
@@ -234,7 +195,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  flex-direction: wrap;
+  flex-wrap: wrap;
 }
 .tweet-card-actions i {
   margin-top: 1.5rem;
