@@ -94,7 +94,8 @@ exports.tweetLike = async (req, res, next) => {
         const tweetId = req.params.tweetId;
         const user = req.user
         await likeTweet(tweetId, user)
-        res.redirect('/')
+        const tweets = await findAllTweets()
+        res.render("includes/tweet-list", {tweets, isAuthenticated:req.isAuthenticated(), currentUser:req.user})
     } catch (error) {
         next(error)
     }
