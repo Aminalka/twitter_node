@@ -1,5 +1,5 @@
 
-const {createNewTweet,findAllTweets,findTweetAndDelete, findTweetById, findTweetAndUpdate, getCurrentUserTweetsWithFollowing}=require('../queries/tweet.queries');
+const {createNewTweet,findAllTweets,findTweetAndDelete, findTweetById, findTweetAndUpdate, getCurrentUserTweetsWithFollowing, likeTweet}=require('../queries/tweet.queries');
 
 
 exports.createTweet= async(req, res, next) => {
@@ -87,5 +87,16 @@ exports.showTweet= async(req, res, next) => {
         next(error)
         
     }
-} 
+}
+
+exports.tweetLike = async (req, res, next) => {
+    try {
+        const tweetId = req.params.tweetId;
+        const user = req.user
+        await likeTweet(tweetId, user)
+        res.redirect('/')
+    } catch (error) {
+        next(error)
+    }
+}   
 
