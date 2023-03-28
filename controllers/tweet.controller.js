@@ -13,7 +13,9 @@ exports.createTweet= async(req, res, next) => {
         res.status(400).render('tweets/tweet-list',{
             errors,
             tweets,
-            isAuthenticated:req.isAuthenticated(), currentUser:req.user})
+            isAuthenticated:req.isAuthenticated(),
+            currentUser:req.user
+        })
     }
     
 }

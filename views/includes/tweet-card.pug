@@ -12,7 +12,7 @@
         .tweet-card-author-data
             if tweet.retweeted.status
                 img(src=tweet.retweeted.initialAuthor.avatar, alt="")
-                a(href=`/user/${tweet.author.username}`)
+                a(href=`/user/${tweet.retweeted.initialAuthor.username}`)
                     p @#{tweet.retweeted.initialAuthor.username}
                 p= moment(tweet.createdAt).locale('fr').fromNow()
             else 
