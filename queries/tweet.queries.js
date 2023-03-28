@@ -6,15 +6,39 @@ exports.createNewTweet=(body) => {
 }
 
 exports.findAllTweets= () => {
-    return Tweet.find({}).populate('author').sort('-createdAt').exec();
+    return Tweet.find({})
+                .populate('author')
+                .populate({
+                  path:'retweeted',
+                  populate:{
+                    path:'initialAuthor'
+                  }
+                }).sort('-createdAt')
+                .exec();
 }
 
 exports.getCurrentUserTweetsWithFollowing = (user) => {
-  return Tweet.find({author: { $in: [...user.followings, user._id]}}).populate('author').sort('-createdAt').exec();
+  return Tweet.find({author: { $in: [...user.followings, user._id]}})
+              .populate('author')
+              .populate({
+                path:'retweeted',
+                populate:{
+                  path:'initialAuthor'
+                }
+              })
+              .sort('-createdAt')
+              .exec();
 }
 
 exports.findTweetsFromUsername = (authorId) => {
-  return Tweet.find({ author: authorId}).populate('author').sort('-createdAt').exec();
+  return Tweet.find({ author: authorId}).populate('author')
+              .populate({
+                path:'retweeted',
+                populate:{
+                  path:'initialAuthor'
+                }
+              })
+              .sort('-createdAt').exec();
 }
 
 exports.findTweetAndDelete=(tweetId) => {
@@ -29,6 +53,12 @@ exports.findTweetById = (tweetId) => {
         path:'comments',
         populate: {
           path:'author'
+        }
+      })
+      .populate({
+        path:'retweeted',
+        populate:{
+          path:'initialAuthor'
         }
       })
       .sort('-createdAt')
@@ -52,4 +82,20 @@ exports.likeTweet = async (tweetId, user) => {
   user.save();
   return tweet.save();
 }
+
+exports.retweet = async (tweetId, userId) => {
+  const tweet = await Tweet.findById(tweetId)
+  const sharedTweet = new Tweet ({
+    content: tweet.content,
+    author:userId,
+    retweeted:{
+      status: true,
+      initialAuthor:tweet.author._id
+    }
+    
+  })
+
+  return sharedTweet.save();
+}
+
 
